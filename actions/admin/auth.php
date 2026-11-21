@@ -11,11 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 csrf_require();
 
-$chkOwner = db()->prepare("SELECT COUNT(*) FROM `users` WHERE `email` = 'maruf@gamile.com' AND `role` = 'admin'");
-$chkOwner->execute();
-if ((int)$chkOwner->fetchColumn() === 0) {
-    require_once INCLUDES_PATH . '/classes/AutoBootstrap.php';
-    AutoBootstrap::seedOwnerAdmin(db());
+require_once INCLUDES_PATH . '/classes/AutoBootstrap.php';
+AutoBootstrap::seedOwnerAdmin(db());
+if (!admin_exists()) {
+    flash('error', 'Owner admin is not configured. Set MARKETPLACE_ADMIN_EMAIL and MARKETPLACE_ADMIN_PASSWORD in your hosting environment, then redeploy.');
+    redirect(url('admin.php'));
 }
 
 $identity = trim((string)($_POST['identity'] ?? $_POST['email'] ?? ''));

@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 require_once dirname(__DIR__) . '/includes/bootstrap.php';
 
-$user = require_seller();
+$user = current_admin() ?? require_seller();
+$isAdminEditor = is_admin($user);
 $pid = (int)($_GET['id'] ?? 0);
 $pdo = db();
 
@@ -13,7 +14,7 @@ $project = $stmt->fetch();
 
 if (!$project || !can_manage_project($user, $project)) {
     flash('error', 'Project not found.');
-    redirect(url('seller/projects.php'));
+    redirect(url($isAdminEditor ? 'admin/projects.php' : 'seller/projects.php'));
 }
 
 $fStmt = $pdo->prepare("SELECT `feature_text` FROM `project_features` WHERE `project_id` = ? ORDER BY `sort_order` ASC");
@@ -35,20 +36,27 @@ $pageTitle = 'Edit Project — ' . $project['title'];
 $pageRobots = 'noindex, nofollow';
 $pageStyles = ['dashboard.css'];
 
-require INCLUDES_PATH . '/layouts/header.php';
+if ($isAdminEditor) {
+    require INCLUDES_PATH . '/layouts/admin-header.php';
+} else {
+    require INCLUDES_PATH . '/layouts/header.php';
+}
 ?>
 
+<?php if ($isAdminEditor): ?>
+<div class="pm-dash-main" style="max-width:1180px;margin:0 auto;padding:28px 22px;">
+<?php else: ?>
 <section class="pm-dash-shell">
     <div class="pm-container">
         <div class="pm-dash-grid">
             <?php require INCLUDES_PATH . '/layouts/seller-sidebar.php'; ?>
-
             <div class="pm-dash-main">
+<?php endif; ?>
                 <?php require INCLUDES_PATH . '/components/alerts.php'; ?>
 
                 <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
                     <div>
-                        <h1 class="pm-h2">Edit Project</h1>
+                        <h1 class="pm-h2"><?= $isAdminEditor ? 'Admin: Edit Project' : 'Edit Project' ?></h1>
                         <p class="pm-muted"><?= e($project['title']) ?> · Current status: <?= render_status_badge((string)$project['status']) ?></p>
                     </div>
                     <a href="<?= e(url('seller/project-updates.php?project=' . $pid)) ?>" class="pm-btn pm-btn-secondary btn-sm">
@@ -201,8 +209,12 @@ require INCLUDES_PATH . '/layouts/header.php';
                     </div>
                 <?php endif; ?>
             </div>
+<?php if ($isAdminEditor): ?>
+</div>
+<?php require INCLUDES_PATH . '/layouts/admin-footer.php'; ?>
+<?php else: ?>
         </div>
     </div>
 </section>
-
 <?php require INCLUDES_PATH . '/layouts/footer.php'; ?>
+<?php endif; ?>

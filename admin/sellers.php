@@ -69,6 +69,7 @@ $sellers = $stmt->fetchAll();
                         <tr>
                             <td>
                                 <strong><?= e($s['store_name'] ?: $s['full_name']) ?></strong>
+                                <a class="pm-link" style="font-size:.75rem;margin-left:6px;" href="<?= e(url('seller-profile.php?username=' . rawurlencode((string)$s['username']))) ?>" target="_blank" rel="noopener">View Store</a>
                                 <?php if ((int)$s['is_verified_seller']): ?><span class="pm-badge pm-badge-primary" style="margin-left:4px;">Verified</span><?php endif; ?>
                                 <small class="pm-muted" style="display:block;">@<?= e($s['username']) ?> · <?= e($s['email']) ?></small>
                             </td>

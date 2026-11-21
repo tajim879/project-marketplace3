@@ -48,7 +48,7 @@ $selfPath = 'admin/project-review.php?id=' . $pid;
         <a href="<?= e(url('download.php?project=' . $pid)) ?>" class="pm-btn pm-btn-secondary">
             <?= icon('download', 16) ?><span>Download ZIP for Audit</span>
         </a>
-        <a href="<?= e(url('seller/edit-project.php?id=' . $pid)) ?>" class="pm-btn pm-btn-ghost">Edit Details</a>
+        <a href="<?= e(url('seller/edit-project.php?id=' . $pid)) ?>" class="pm-btn pm-btn-primary">Edit Project Details</a>
         <a href="<?= e(url('admin/projects.php')) ?>" class="pm-btn pm-btn-ghost">Back</a>
     </div>
 </div>

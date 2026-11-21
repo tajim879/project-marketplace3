@@ -11,13 +11,10 @@ require_once __DIR__ . '/includes/bootstrap.php';
 header('X-Robots-Tag: noindex, nofollow, noarchive');
 header('Cache-Control: no-store, no-cache, must-revalidate');
 
-// Ensure the configured owner administrator account (maruf@gamile.com) exists on any host
-$chkOwner = db()->prepare("SELECT COUNT(*) FROM `users` WHERE `email` = 'maruf@gamile.com' AND `role` = 'admin'");
-$chkOwner->execute();
-if ((int)$chkOwner->fetchColumn() === 0) {
-    require_once INCLUDES_PATH . '/classes/AutoBootstrap.php';
-    AutoBootstrap::seedOwnerAdmin(db());
-}
+// Provision the first owner account only from explicit deployment environment variables.
+require_once INCLUDES_PATH . '/classes/AutoBootstrap.php';
+AutoBootstrap::seedOwnerAdmin(db());
+$adminSetupMissing = !admin_exists();
 
 if (is_admin()) {
     redirect(url('admin/dashboard.php'));
@@ -63,6 +60,9 @@ $faviconHref = ($customFav !== '' && is_file(ROOT_PATH . '/' . ltrim($customFav,
             </div>
 
             <?php require INCLUDES_PATH . '/components/alerts.php'; ?>
+            <?php if ($adminSetupMissing): ?>
+                <div class="pm-alert pm-alert-warning" role="alert">Owner admin is not configured. Add <code>MARKETPLACE_ADMIN_EMAIL</code> and <code>MARKETPLACE_ADMIN_PASSWORD</code> in your hosting environment. Use a unique password with at least 12 characters, then redeploy.</div>
+            <?php endif; ?>
 
             <form method="post" action="<?= e(url('actions/admin/auth.php')) ?>" class="pm-auth-form" data-submit-lock>
                 <?= csrf_field() ?>

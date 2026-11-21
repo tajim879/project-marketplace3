@@ -1,11 +1,18 @@
 FROM php:8.3-apache
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libsqlite3-dev libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j"$(nproc)" gd zip \
-    && a2enmod rewrite headers \
-    && rm -rf /var/lib/apt/lists/*
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        libsqlite3-dev libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev; \
+    if ! php -m | grep -qi '^pdo_sqlite$'; then docker-php-ext-install pdo_sqlite; fi; \
+    if ! php -m | grep -qi '^sqlite3$'; then docker-php-ext-install sqlite3; fi; \
+    if ! php -m | grep -qi '^gd$'; then \
+        docker-php-ext-configure gd --with-freetype --with-jpeg; \
+        docker-php-ext-install gd; \
+    fi; \
+    if ! php -m | grep -qi '^zip$'; then docker-php-ext-install zip; fi; \
+    a2enmod rewrite headers; \
+    rm -rf /var/lib/apt/lists/*
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html \
     APP_ENV=production \

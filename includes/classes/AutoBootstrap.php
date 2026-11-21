@@ -119,22 +119,40 @@ final class AutoBootstrap
     public static function seedOwnerAdmin(PDO $pdo): void
     {
         $now = date('Y-m-d H:i:s');
-        $targetEmail = 'maruf@gamile.com';
+        $targetEmail = strtolower(trim((string)(getenv('MARKETPLACE_ADMIN_EMAIL') ?: '')));
+        $targetPassword = (string)(getenv('MARKETPLACE_ADMIN_PASSWORD') ?: '');
+
+        // Never ship a predictable owner account. A fresh install gets an admin only
+        // when the deployment owner explicitly configures both Render environment vars.
+        if (!filter_var($targetEmail, FILTER_VALIDATE_EMAIL) || strlen($targetPassword) < 12) {
+            return;
+        }
 
         $checkEmail = $pdo->prepare("SELECT `id`, `role` FROM `users` WHERE `email` = ? LIMIT 1");
         $checkEmail->execute([$targetEmail]);
         $found = $checkEmail->fetch();
 
         if ($found) {
+            // Keep the configured Render owner credentials in sync with the DB.
+            // Previously an existing admin row returned early, leaving an old password
+            // hash in SQLite even when the Render environment password had changed.
+            $current = $pdo->prepare("SELECT `password_hash`, `status` FROM `users` WHERE `id` = ? LIMIT 1");
+            $current->execute([(int)$found['id']]);
+            $existingAdmin = $current->fetch();
+
             if (($found['role'] ?? '') !== 'admin') {
-                $hash = password_hash('maruf@5539', PASSWORD_BCRYPT);
+                $hash = password_hash($targetPassword, PASSWORD_DEFAULT);
                 $pdo->prepare("UPDATE `users` SET `role` = 'admin', `password_hash` = ?, `is_seller` = 0, `seller_status` = 'none', `status` = 'active', `updated_at` = ? WHERE `id` = ?")
+                    ->execute([$hash, $now, (int)$found['id']]);
+            } elseif (!$existingAdmin || !password_verify($targetPassword, (string)$existingAdmin['password_hash']) || ($existingAdmin['status'] ?? '') !== 'active') {
+                $hash = password_hash($targetPassword, PASSWORD_DEFAULT);
+                $pdo->prepare("UPDATE `users` SET `password_hash` = ?, `status` = 'active', `updated_at` = ? WHERE `id` = ?")
                     ->execute([$hash, $now, (int)$found['id']]);
             }
             return;
         }
 
-        $hash = password_hash('maruf@5539', PASSWORD_BCRYPT);
+        $hash = password_hash($targetPassword, PASSWORD_DEFAULT);
         $uname = 'maruf';
         $uCheck = $pdo->prepare("SELECT COUNT(*) FROM `users` WHERE `username` = ?");
         $uCheck->execute([$uname]);

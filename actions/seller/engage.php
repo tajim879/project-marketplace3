@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect(url('seller/dashboard.php'));
 }
 
-$user = require_seller();
+$user = current_admin() ?? require_seller();
 csrf_require();
 
 $action = (string)($_POST['action'] ?? '');

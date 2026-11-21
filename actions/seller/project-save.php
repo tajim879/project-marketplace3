@@ -7,12 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect(url('seller/projects.php'));
 }
 
-$user = require_seller();
+$user = current_admin() ?? require_seller();
+$isAdminEditor = is_admin($user);
 csrf_require();
 
 $projectId = (int)($_POST['project_id'] ?? 0);
 $isEdit = $projectId > 0;
 $backUrl = $isEdit ? url('seller/edit-project.php?id=' . $projectId) : url('seller/upload-project.php');
+if ($isAdminEditor && $isEdit) { $backUrl = url('seller/edit-project.php?id=' . $projectId); }
 
 $pdo = db();
 $existing = null;
@@ -22,7 +24,7 @@ if ($isEdit) {
     $existing = $stmt->fetch();
     if (!$existing || !can_manage_project($user, $existing)) {
         flash('error', 'Project not found or access denied.');
-        redirect(url('seller/projects.php'));
+        redirect($isAdminEditor ? url('admin/projects.php') : url('seller/projects.php'));
     }
 }
 
@@ -280,7 +282,7 @@ try {
 
     $pdo->commit();
     flash('success', $msg);
-    redirect(url('seller/projects.php'));
+    redirect($isAdminEditor ? url('admin/project-review.php?id=' . $projectId) : url('seller/projects.php'));
 } catch (Throwable $e) {
     if ($pdo->inTransaction()) {
         $pdo->rollBack();

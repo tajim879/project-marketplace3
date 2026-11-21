@@ -15,6 +15,10 @@ services:
         value: /var/data/db
       - key: MARKETPLACE_STORAGE_DIR
         value: /var/data/storage
+      - key: MARKETPLACE_ADMIN_EMAIL
+        sync: false
+      - key: MARKETPLACE_ADMIN_PASSWORD
+        sync: false
     disk:
       name: marketplace-data
       mountPath: /var/data

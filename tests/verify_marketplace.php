@@ -14,6 +14,8 @@ if (PHP_SAPI !== 'cli') {
 
 $tmpDb = sys_get_temp_dir() . '/codevault-e2e-' . bin2hex(random_bytes(5)) . '.sqlite';
 putenv('MARKETPLACE_DB_PATH=' . $tmpDb);
+putenv('MARKETPLACE_ADMIN_EMAIL=marketplace-test-admin@example.com');
+putenv('MARKETPLACE_ADMIN_PASSWORD=TestAdmin!Pass5539');
 $_ENV['MARKETPLACE_DB_PATH'] = $tmpDb;
 
 require_once dirname(__DIR__) . '/includes/bootstrap.php';
@@ -44,7 +46,7 @@ try {
     check((int)$pdo->query("SELECT COUNT(*) FROM `orders`")->fetchColumn() === 0, 'Zero demo orders seeded on fresh boot');
     check((int)$pdo->query("SELECT COUNT(*) FROM `categories`")->fetchColumn() === 14, 'All 14 digital product categories seeded');
     check(count(enabled_payment_methods()) === 3, 'bKash, Nagad & Rocket manual payment methods ready');
-    check(admin_exists(), 'Private owner admin (maruf@gamile.com) ready on fresh boot');
+    check(admin_exists(), 'Private owner admin (marketplace-test-admin@example.com) ready on fresh boot');
 
     // 2. Payment SVG branding
     foreach (['bkash', 'nagad', 'rocket'] as $code) {
@@ -52,13 +54,13 @@ try {
         check(str_contains($svg, '<svg') && is_file(ROOT_PATH . "/assets/images/payments/{$code}.svg"), "Realistic {$code} SVG vector asset & helper present");
     }
 
-    // 3. Private Owner Admin (maruf@gamile.com / maruf@5539) auto-provisioned & isolated from user login
+    // 3. Private Owner Admin (marketplace-test-admin@example.com / TestAdmin!Pass5539) auto-provisioned & isolated from user login
     check(admin_exists(), 'Private Owner Admin auto-provisioned on first boot');
-    $pubAttempt = Auth::attemptLogin('maruf@gamile.com', 'maruf@5539');
+    $pubAttempt = Auth::attemptLogin('marketplace-test-admin@example.com', 'TestAdmin!Pass5539');
     check($pubAttempt['success'] === false, 'Admin credentials strictly rejected on public user login');
-    $admAttempt = Auth::attemptAdminLogin('maruf@gamile.com', 'maruf@5539');
+    $admAttempt = Auth::attemptAdminLogin('marketplace-test-admin@example.com', 'TestAdmin!Pass5539');
     check($admAttempt['success'] === true, 'Admin credentials accepted on isolated private admin login');
-    $adminId = (int)($pdo->query("SELECT `id` FROM `users` WHERE `email` = 'maruf@gamile.com'")->fetchColumn());
+    $adminId = (int)($pdo->query("SELECT `id` FROM `users` WHERE `email` = 'marketplace-test-admin@example.com'")->fetchColumn());
 
     $secondOwner = Auth::registerOwnerAdmin([
         'full_name' => 'Intruder',
