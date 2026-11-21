@@ -182,7 +182,7 @@ function brand_logo(string $siteName = 'CodeVault', bool $withTagline = false, s
 
     if ($customLogo !== '' && is_file(ROOT_PATH . '/' . ltrim($customLogo, '/'))) {
         $src = htmlspecialchars(url($customLogo), ENT_QUOTES, 'UTF-8');
-        $mark = '<span class="pm-brand-mark pm-brand-mark-custom"><img src="' . $src . '" alt="' . $safeName . '" width="28" height="28"></span>';
+        $mark = '<span class="pm-brand-mark pm-brand-mark-custom" role="img" aria-label="' . $safeName . ' logo"><img src="' . $src . '" alt="' . $safeName . ' logo" loading="eager" decoding="async"></span>';
     } else {
         $mark = '<span class="pm-brand-mark" aria-hidden="true">'
             . '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">'

@@ -238,8 +238,12 @@ $menuItems = $pdo->query(
             <div class="pm-field">
                 <label class="pm-label">Upload Custom Logo (PNG/WebP/JPG)</label>
                 <input type="file" name="custom_logo" class="pm-input" accept="image/png,image/webp,image/jpeg">
+                <small class="pm-muted">Any image dimensions or aspect ratio are accepted. The logo is automatically contained without stretching or cropping. Transparent PNG/WebP is recommended.</small>
                 <?php if (site_setting('custom_logo_path') !== ''): ?>
-                    <label style="font-size:0.78rem;display:inline-flex;align-items:center;gap:6px;margin-top:4px;"><input type="checkbox" name="reset_logo" value="1"> Reset to default vector emblem</label>
+                    <div class="pm-logo-upload-preview" style="margin-top:12px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--surface);display:flex;align-items:center;justify-content:center;min-height:76px;">
+                        <img src="<?= e(url(site_setting('custom_logo_path'))) ?>" alt="Current marketplace logo" style="display:block;max-width:100%;width:auto;height:auto;max-height:64px;object-fit:contain;">
+                    </div>
+                    <label style="font-size:0.78rem;display:inline-flex;align-items:center;gap:6px;margin-top:8px;"><input type="checkbox" name="reset_logo" value="1"> Reset to default vector emblem</label>
                 <?php endif; ?>
             </div>
             <div class="pm-field">
