@@ -1,0 +1,8 @@
+# Runtime data and user uploads
+storage/logs/*
+storage/temp/*
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+.env
+.DS_Store

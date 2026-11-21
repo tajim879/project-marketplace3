@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: project-marketplace
+    runtime: docker
+    plan: starter
+    healthCheckPath: /
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "0"
+      - key: APP_TIMEZONE
+        value: Asia/Dhaka
+      - key: MARKETPLACE_DATA_DIR
+        value: /var/data/db
+      - key: MARKETPLACE_STORAGE_DIR
+        value: /var/data/storage
+    disk:
+      name: marketplace-data
+      mountPath: /var/data
+      sizeGB: 1

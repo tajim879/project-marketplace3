@@ -1,0 +1,198 @@
+/* ============================================================================
+   Buyer Workspace Styles — Soft UI · 3D Raised · Bright Soft Glow
+   Inherits Full Dashboard Shell & KPI System from dashboard.css
+   ============================================================================ */
+
+@import url('dashboard.css');
+
+.pm-order-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.pm-order-meta-item {
+    padding: 15px 17px;
+    border-radius: var(--radius-md);
+    background: var(--grad-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xs);
+    min-width: 0;
+}
+
+.pm-order-meta-item small {
+    display: block;
+    font-size: 0.73rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+}
+
+.pm-order-meta-item strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    word-break: break-word;
+}
+
+/* Order Verification Timeline */
+.pm-timeline {
+    position: relative;
+    display: grid;
+    gap: 14px;
+    padding-left: 20px;
+}
+
+.pm-timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    border-radius: 99px;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--border) 100%);
+}
+
+.pm-timeline-step {
+    position: relative;
+    display: grid;
+    gap: 3px;
+    padding: 12px 15px;
+    border-radius: var(--radius-md);
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xs);
+}
+
+.pm-timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -19px;
+    top: 16px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--grad-primary);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(91, 80, 255, 0.18);
+}
+
+/* Support Ticket Conversation Thread */
+.pm-thread {
+    display: grid;
+    gap: 14px;
+}
+
+.pm-msg {
+    padding: 16px 18px;
+    border-radius: var(--radius-lg);
+    background: var(--grad-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    display: grid;
+    gap: 8px;
+}
+
+.pm-msg.is-admin {
+    background: linear-gradient(180deg, #F8F7FF 0%, #F1F0FF 100%);
+    border-color: var(--primary-border);
+}
+
+.pm-msg-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Notification Feed Rows */
+.pm-notif-item,
+.pm-notif-page-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 15px 18px;
+    border-bottom: 1px solid var(--border-subtle);
+    text-decoration: none;
+    color: inherit;
+    transition: background var(--t-fast);
+}
+
+.pm-notif-item:last-child,
+.pm-notif-page-item:last-child {
+    border-bottom: 0;
+}
+
+.pm-notif-item:hover,
+.pm-notif-page-item:hover {
+    background: var(--surface-soft);
+}
+
+.pm-notif-item.is-unread,
+.pm-notif-page-item.is-unread {
+    background: var(--primary-softer);
+}
+
+.pm-notif-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: linear-gradient(150deg, #FFFFFF 0%, #EEECFF 100%);
+    color: var(--primary);
+    border: 1px solid rgba(91, 80, 255, 0.18);
+    box-shadow: var(--shadow-xs);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.pm-notif-body {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    gap: 3px;
+}
+
+.pm-notif-body strong {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pm-notif-body p {
+    margin: 0;
+    font-size: 0.83rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.pm-notif-body time {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.pm-session-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--grad-surface);
+    box-shadow: var(--shadow-xs);
+}
+
+@media (max-width: 560px) {
+    .pm-notif-item {
+        flex-wrap: wrap;
+    }
+}

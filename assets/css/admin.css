@@ -1,0 +1,577 @@
+/* ============================================================================
+   CodeVault Private Admin Control Center — Executive SaaS & 100% Mobile Ready
+   ============================================================================ */
+
+.pm-admin-body {
+    background: var(--bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sticky Executive Topbar */
+.pm-admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 95;
+    height: 60px;
+    background: var(--surface-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-inline: 20px;
+}
+
+.pm-admin-topbar-left,
+.pm-admin-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.pm-admin-brand-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: var(--radius-xs);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.pm-admin-menu-btn {
+    display: none;
+}
+
+.pm-admin-drawer-head,
+.pm-admin-sidebar-head-mobile {
+    display: none;
+}
+
+/* Workspace Shell */
+.pm-admin-layout,
+.pm-admin-shell {
+    display: grid;
+    grid-template-columns: 256px minmax(0, 1fr);
+    min-height: calc(100vh - 60px);
+}
+
+.pm-admin-sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 16px 12px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.pm-admin-nav-group {
+    display: grid;
+    gap: 2px;
+}
+
+.pm-admin-nav-heading,
+.pm-admin-nav-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: 4px 11px 5px;
+    display: block;
+}
+
+.pm-admin-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8.5px 11px;
+    border-radius: var(--radius-sm);
+    font-size: 0.855rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: background var(--t-fast), color var(--t-fast);
+}
+
+.pm-admin-link-left,
+.pm-admin-link-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.pm-admin-link-left span,
+.pm-admin-link-main span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pm-admin-link .pm-icon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.pm-admin-link:hover {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+}
+
+.pm-admin-link:hover .pm-icon {
+    color: var(--text-primary);
+}
+
+.pm-admin-link.is-active {
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.pm-admin-link.is-active .pm-icon {
+    color: var(--primary);
+}
+
+.pm-admin-pill,
+.pm-admin-count {
+    min-width: 20px;
+    height: 20px;
+    padding-inline: 6px;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--warning-soft);
+    color: var(--warning-deep);
+    border: 1px solid var(--warning-border);
+    flex-shrink: 0;
+}
+
+.pm-admin-link.is-active .pm-admin-pill,
+.pm-admin-link.is-active .pm-admin-count {
+    background: var(--primary);
+    color: #FFFFFF;
+    border-color: var(--primary);
+}
+
+.pm-admin-main {
+    padding: clamp(18px, 2.8vw, 28px) clamp(14px, 3vw, 32px) 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.pm-admin-header,
+.pm-admin-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 20px 24px;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+}
+
+.pm-admin-header h1,
+.pm-admin-head h1 {
+    font-size: clamp(1.22rem, 2vw, 1.52rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.pm-admin-header p,
+.pm-admin-head p {
+    margin: 4px 0 0;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+}
+
+.pm-admin-head-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Uniform 4-Box Admin KPI Cards */
+.pm-admin-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.pm-admin-kpi {
+    position: relative;
+    padding: 18px 20px;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    height: 100%;
+    min-width: 0;
+}
+
+.pm-admin-kpi > div {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+}
+
+.pm-admin-kpi .pm-stat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.pm-admin-kpi-val {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.26rem, 1.9vw, 1.52rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+}
+
+.pm-admin-kpi-lbl,
+.pm-admin-kpi-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.pm-admin-kpi-sub,
+.pm-admin-kpi-meta {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+a.pm-admin-kpi-sub,
+.pm-admin-kpi-meta a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a.pm-admin-kpi-sub:hover {
+    text-decoration: underline;
+}
+
+/* Grids & Toolbar */
+.pm-admin-split,
+.pm-admin-grid-2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.pm-admin-grid-equal {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.pm-admin-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.pm-card .pm-admin-toolbar {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pm-admin-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.pm-admin-search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+/* Clean Monochrome-Indigo Revenue Chart */
+.pm-admin-chart,
+.pm-bar-chart {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    align-items: end;
+    height: 168px;
+    padding-top: 14px;
+}
+
+.pm-admin-bar-col,
+.pm-bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.pm-admin-bar,
+.pm-bar-fill {
+    width: 100%;
+    max-width: 36px;
+    min-height: 5px;
+    border-radius: 5px 5px 2px 2px;
+    background: var(--primary);
+    opacity: 0.85;
+    transition: height 280ms var(--ease-out), opacity var(--t-fast);
+}
+
+.pm-admin-bar-col:hover .pm-admin-bar,
+.pm-bar-col:hover .pm-bar-fill {
+    opacity: 1;
+}
+
+.pm-admin-bar-lbl,
+.pm-bar-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.pm-admin-bar-val,
+.pm-bar-amount {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* Payment Proof Thumbnail */
+.pm-proof-thumb {
+    width: 60px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    border: 1px solid var(--border);
+    cursor: zoom-in;
+    transition: border-color var(--t-fast);
+}
+
+.pm-proof-thumb:hover {
+    border-color: var(--primary);
+}
+
+/* Mobile Sidebar Backdrop */
+.pm-admin-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: 199;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-base);
+}
+
+.pm-admin-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pm-admin-user-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.pm-admin-user-search {
+    min-width: min(220px, 78vw);
+    max-width: 100%;
+}
+
+.pm-admin-split-equal {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.pm-admin-split-equal > * {
+    min-width: 0;
+}
+
+/* Inline Details Popover Action (Reject/Note Forms) */
+.pm-inline-action {
+    position: relative;
+    display: inline-block;
+}
+
+.pm-inline-action > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.pm-inline-action > summary::-webkit-details-marker {
+    display: none;
+}
+
+.pm-inline-pop {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 40;
+    width: min(300px, 84vw);
+    padding: 14px;
+    border-radius: var(--radius-md);
+    background: var(--grad-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    gap: 10px;
+    text-align: left;
+}
+
+@media (max-width: 1180px) {
+    .pm-admin-kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .pm-admin-split,
+    .pm-admin-split-equal,
+    .pm-admin-grid-2,
+    .pm-admin-grid-equal {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 980px) {
+    .pm-admin-topbar {
+        padding-inline: 14px;
+    }
+    .pm-admin-menu-btn {
+        display: inline-grid;
+    }
+    .pm-admin-layout,
+    .pm-admin-shell {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .pm-admin-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100dvh;
+        width: min(288px, 88vw);
+        z-index: 210;
+        padding-top: 14px;
+        transform: translateX(-105%);
+        transition: transform var(--t-smooth);
+        box-shadow: 12px 0 36px rgba(15, 23, 42, 0.16);
+    }
+    .pm-admin-sidebar.is-open {
+        transform: translateX(0);
+    }
+    .pm-admin-drawer-head,
+    .pm-admin-sidebar-head-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 4px 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .pm-hide-sm {
+        display: none !important;
+    }
+}
+
+@media (max-width: 560px) {
+    .pm-admin-kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+    .pm-admin-kpi {
+        padding: 14px 15px;
+    }
+    .pm-admin-head {
+        padding: 16px;
+    }
+    .pm-admin-toolbar {
+        padding: 12px;
+    }
+    .pm-admin-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+        width: 100%;
+    }
+    .pm-admin-search-form {
+        width: 100%;
+    }
+    .pm-admin-search-form .pm-input,
+    .pm-admin-search-form .pm-select {
+        flex: 1 1 130px;
+        min-width: 0;
+    }
+    .pm-bar-chart {
+        gap: 6px;
+        height: 148px;
+    }
+}
+
+@media (max-width: 375px) {
+    .pm-admin-kpi-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

@@ -1,0 +1,143 @@
+/* ============================================================================
+   Typography System - Primary: Inter | Secondary/Display: Manrope
+   ============================================================================ */
+
+h1, h2, h3, h4, .pm-display, .pm-h1, .pm-h2, .pm-h3, .pm-h4 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    letter-spacing: -0.026em;
+    font-weight: 700;
+}
+
+.pm-display {
+    font-size: clamp(2.05rem, 4.1vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -0.034em;
+}
+
+.pm-h1 {
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    line-height: 1.18;
+    font-weight: 800;
+}
+
+.pm-h2 {
+    font-size: clamp(1.38rem, 2.3vw, 1.85rem);
+    line-height: 1.24;
+    font-weight: 800;
+}
+
+.pm-h3 {
+    font-size: 1.15rem;
+    line-height: 1.34;
+    font-weight: 700;
+}
+
+.pm-h4 {
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.pm-lead {
+    font-size: clamp(0.98rem, 1.35vw, 1.1rem);
+    line-height: 1.68;
+    color: var(--text-secondary);
+}
+
+.pm-muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.62;
+}
+
+.pm-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F1F0FF 100%);
+    border: 1px solid rgba(91, 80, 255, 0.24);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow:
+        inset 0 1.5px 0 #FFFFFF,
+        0 6px 18px -5px rgba(91, 80, 255, 0.28),
+        -2px -2px 6px rgba(255, 255, 255, 0.9);
+}
+
+.pm-eyebrow .pm-icon {
+    color: var(--primary);
+}
+
+.pm-tabular, .pm-price {
+    font-variant-numeric: tabular-nums;
+}
+
+.pm-text-gradient {
+    color: var(--text-primary);
+}
+
+code, .pm-mono {
+    font-family: var(--font-mono);
+    font-size: 0.84em;
+    background: var(--bg-inset);
+    padding: 2px 7px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--primary-deep);
+}
+
+/* Rich editorial content (CMS legal pages & project descriptions) */
+.pm-prose {
+    color: var(--text-secondary);
+    font-size: 0.96rem;
+    line-height: 1.75;
+}
+
+.pm-prose h2 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 28px 0 10px;
+}
+
+.pm-prose h2:first-child {
+    margin-top: 0;
+}
+
+.pm-prose h3 {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin: 22px 0 8px;
+}
+
+.pm-prose p {
+    margin-bottom: 14px;
+}
+
+.pm-prose ul {
+    margin: 12px 0 18px;
+    display: grid;
+    gap: 9px;
+}
+
+.pm-prose ul li {
+    position: relative;
+    padding-left: 22px;
+}
+
+.pm-prose ul li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 9px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--grad-brand);
+    box-shadow: 0 0 0 3px var(--primary-soft);
+}

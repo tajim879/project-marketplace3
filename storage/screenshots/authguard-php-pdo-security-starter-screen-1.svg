@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+    <defs>
+        <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F7F8FD"/>
+            <stop offset="55%" stop-color="#F1F3FA"/>
+            <stop offset="100%" stop-color="#ECEFFA"/>
+        </linearGradient>
+        <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8B7CFF"/>
+            <stop offset="100%" stop-color="#635BFF"/>
+        </linearGradient>
+        <linearGradient id="softPanel" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8B7CFF" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#635BFF" stop-opacity="0.03"/>
+        </linearGradient>
+        <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8B7CFF" stop-opacity="0.24"/>
+            <stop offset="100%" stop-color="#8B7CFF" stop-opacity="0.0"/>
+        </linearGradient>
+        <radialGradient id="glowOrb" cx="82%" cy="14%" r="48%">
+            <stop offset="0%" stop-color="#8B7CFF" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#8B7CFF" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="cardShadow" x="-8%" y="-8%" width="116%" height="122%">
+            <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#202438" flood-opacity="0.085"/>
+        </filter>
+    </defs>
+    <rect width="800" height="500" fill="url(#bgGrad)"/>
+    <rect width="800" height="500" fill="url(#glowOrb)"/>
+    <!-- Top Header Strip -->
+    <rect x="82" y="34" width="136" height="28" rx="14" fill="#FFFFFF" stroke="#E4E7F2"/>
+    <circle cx="99" cy="48" r="4.5" fill="#8B7CFF"/>
+    <text x="112" y="52" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#202438">CLEAN SOURCE</text>
+    <text x="718" y="53" text-anchor="end" font-family="Manrope,sans-serif" font-size="12.5" font-weight="700" fill="#687089">Architecture &amp; Source Modules</text>
+            <!-- Premium SaaS Dashboard Mockup -->
+        <g transform="translate(82, 98)">
+            <rect x="0" y="0" width="636" height="328" rx="18" fill="#FFFFFF" stroke="#E4E7F2" stroke-width="1.5" filter="url(#cardShadow)"/>
+            <!-- Sidebar -->
+            <rect x="0" y="0" width="138" height="328" rx="18" fill="#FAFBFD"/>
+            <line x1="138" y1="0" x2="138" y2="328" stroke="#ECEFF7"/>
+            <rect x="18" y="20" width="26" height="26" rx="8" fill="url(#accentGrad)"/>
+            <rect x="52" y="28" width="64" height="10" rx="5" fill="#202438" opacity="0.85"/>
+            <rect x="16" y="68" width="106" height="30" rx="9" fill="url(#accentGrad)"/>
+            <rect x="28" y="80" width="64" height="6" rx="3" fill="#FFFFFF"/>
+            <rect x="24" y="114" width="78" height="7" rx="3.5" fill="#9299AB" opacity="0.55"/>
+            <rect x="24" y="138" width="86" height="7" rx="3.5" fill="#9299AB" opacity="0.55"/>
+            <rect x="24" y="162" width="68" height="7" rx="3.5" fill="#9299AB" opacity="0.55"/>
+            <rect x="24" y="186" width="82" height="7" rx="3.5" fill="#9299AB" opacity="0.55"/>
+
+            <!-- KPI Row -->
+            <rect x="158" y="20" width="144" height="80" rx="13" fill="url(#accentGrad)"/>
+            <text x="174" y="46" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.84">REVENUE</text>
+            <text x="174" y="76" font-family="Manrope,sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">v1.4.0</text>
+
+            <rect x="314" y="20" width="144" height="80" rx="13" fill="#F6F7FC" stroke="#EAECEF"/>
+            <text x="330" y="46" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#9299AB">CONVERSION</text>
+            <text x="330" y="76" font-family="Manrope,sans-serif" font-size="20" font-weight="800" fill="#202438">Documented</text>
+
+            <rect x="470" y="20" width="146" height="80" rx="13" fill="#F6F7FC" stroke="#EAECEF"/>
+            <circle cx="496" cy="60" r="14" fill="#16B887" opacity="0.16"/>
+            <rect x="520" y="50" width="76" height="9" rx="4.5" fill="#202438" opacity="0.8"/>
+            <rect x="520" y="66" width="52" height="7" rx="3.5" fill="#16B887"/>
+
+            <!-- Area Chart Card -->
+            <rect x="158" y="116" width="458" height="190" rx="14" fill="#FAFBFD" stroke="#EAECEF"/>
+            <rect x="178" y="134" width="124" height="10" rx="5" fill="#202438" opacity="0.8"/>
+            <line x1="178" y1="176" x2="594" y2="176" stroke="#ECEFF7" stroke-dasharray="4 4"/>
+            <line x1="178" y1="218" x2="594" y2="218" stroke="#ECEFF7" stroke-dasharray="4 4"/>
+            <line x1="178" y1="260" x2="594" y2="260" stroke="#ECEFF7" stroke-dasharray="4 4"/>
+            <path d="M178 266 C 228 248, 258 212, 304 222 C 350 232, 384 182, 434 188 C 484 194, 526 154, 594 146 L 594 286 L 178 286 Z" fill="url(#chartFill)"/>
+            <path d="M178 266 C 228 248, 258 212, 304 222 C 350 232, 384 182, 434 188 C 484 194, 526 154, 594 146" fill="none" stroke="#8B7CFF" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="434" cy="188" r="5.5" fill="#FFFFFF" stroke="#8B7CFF" stroke-width="3"/>
+            <circle cx="594" cy="146" r="5.5" fill="#8B7CFF"/>
+        </g>
+</svg>

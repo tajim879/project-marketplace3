@@ -1,0 +1,245 @@
+/* ============================================================================
+   CodeVault Design System — Minimalist · Modern Clean · Soft UI · 3D Raised
+   Bright Porcelain Surfaces, Dual Soft Neumorphic Depth & Luminous Soft Glows
+   ============================================================================ */
+
+:root {
+    /* Bright Soft-UI Porcelain Surface Hierarchy */
+    --bg: #F3F5FA;
+    --bg-canvas: #F3F5FA;
+    --bg-subtle: #ECEFF7;
+    --bg-inset: #EAEFF7;
+    --surface: #FFFFFF;
+    --surface-elevated: #FFFFFF;
+    --surface-tint: #F7F9FD;
+    --surface-soft: #F8FAFE;
+    --surface-glass: rgba(255, 255, 255, 0.88);
+
+    /* Crisp High-Clarity Typography */
+    --text-primary: #141B34;
+    --text-heading: #141B34;
+    --text-secondary: #4A5572;
+    --text-body: #4A5572;
+    --text-muted: #6C7793;
+    --text-faint: #98A2B8;
+
+    /* Primary Luminous Royal Indigo */
+    --primary: #5B50FF;
+    --primary-hover: #4C40F5;
+    --primary-deep: #3D31D9;
+    --primary-soft: #EFEFFF;
+    --primary-softer: #F6F5FF;
+    --primary-glow: rgba(91, 80, 255, 0.28);
+    --primary-border: rgba(91, 80, 255, 0.26);
+    --grad-brand: linear-gradient(155deg, #746BFF 0%, #584CF7 55%, #473BE6 100%);
+
+    --secondary: #0EA5E9;
+    --secondary-soft: #EDF8FF;
+
+    /* Harmonious Colorful Button & Status Accents */
+    --accent-cyan: #0EA5E9;
+    --accent-cyan-soft: #EDF8FF;
+    --accent-teal: #10B981;
+    --accent-teal-soft: #EAFBF4;
+    --accent-emerald: #10B981;
+    --accent-emerald-soft: #EAFBF4;
+    --accent-amber: #F59E0B;
+    --accent-amber-soft: #FFF8EB;
+    --accent-coral: #F43F5E;
+    --accent-coral-soft: #FFF1F4;
+    --accent-pink: #5B50FF;
+    --accent-pink-soft: #EFEFFF;
+    --accent-violet: #6D5BFF;
+    --accent-violet-soft: #F1EFFF;
+
+    /* Semantic Status Colors */
+    --success: #10B981;
+    --success-deep: #068A5E;
+    --success-soft: #EAFBF4;
+    --success-border: rgba(16, 185, 129, 0.28);
+
+    --warning: #F59E0B;
+    --warning-deep: #B46906;
+    --warning-soft: #FFF8EB;
+    --warning-border: rgba(245, 158, 11, 0.3);
+
+    --danger: #EF3B54;
+    --danger-deep: #C42038;
+    --danger-soft: #FFF1F3;
+    --danger-border: rgba(239, 59, 84, 0.28);
+
+    --info: #1684F8;
+    --info-deep: #0D65C8;
+    --info-soft: #EDF6FF;
+    --info-border: rgba(22, 132, 248, 0.26);
+
+    --star: #FBB024;
+
+    /* Payment Brand Accents (BDT) */
+    --bkash: #E2136E;
+    --bkash-soft: #FFF2F7;
+    --nagad: #F7941D;
+    --nagad-soft: #FFF8F0;
+    --rocket: #8C3494;
+    --rocket-soft: #FBF3FC;
+
+    /* 3D Top-Lit Luminous Surface & Button Gradients */
+    --grad-surface: linear-gradient(180deg, #FFFFFF 0%, #FAFBFD 100%);
+    --grad-hero:
+        radial-gradient(62% 58% at 50% -4%, rgba(99, 91, 255, 0.12) 0%, rgba(14, 165, 233, 0.06) 48%, transparent 78%),
+        linear-gradient(180deg, #FFFFFF 0%, #F3F5FA 100%);
+    --grad-primary: linear-gradient(180deg, #746BFF 0%, #5B50FF 52%, #4A3EE8 100%);
+    --grad-primary-hover: linear-gradient(180deg, #7F77FF 0%, #6358FF 52%, #5044EE 100%);
+    --grad-success: linear-gradient(180deg, #28D39B 0%, #10B981 54%, #099B6B 100%);
+    --grad-success-hover: linear-gradient(180deg, #34DCA5 0%, #15C48A 54%, #0CA673 100%);
+    --grad-sky: linear-gradient(180deg, #3CA8FF 0%, #1886F8 54%, #106FE0 100%);
+    --grad-sky-hover: linear-gradient(180deg, #4FB3FF 0%, #2490FF 54%, #1678EA 100%);
+    --grad-warning: linear-gradient(180deg, #FFBA3B 0%, #F59E0B 54%, #DC8505 100%);
+    --grad-danger: linear-gradient(180deg, #FF5C72 0%, #EF3B54 54%, #D62740 100%);
+    --grad-prism: rgba(216, 224, 240, 0.9);
+    --grad-aurora: linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%);
+
+    /* Soft Hairline Borders */
+    --border: #E2E7F2;
+    --border-subtle: #EDF1F8;
+    --border-strong: #CCD5E6;
+    --border-white: rgba(255, 255, 255, 0.95);
+
+    /* Soft UI + 3D Raised + Bright Soft Glow Shadow Scale */
+    --shadow-xs:
+        inset 0 1px 0 #FFFFFF,
+        0 2px 6px rgba(24, 35, 70, 0.05);
+    --shadow-sm:
+        inset 0 1.5px 0 #FFFFFF,
+        0 4px 12px -2px rgba(24, 35, 70, 0.07),
+        -3px -3px 8px rgba(255, 255, 255, 0.9);
+    --shadow-neu-sm:
+        inset 0 1.5px 0 #FFFFFF,
+        inset 0 -1.5px 0 rgba(164, 177, 206, 0.16),
+        0 5px 14px -3px rgba(24, 35, 70, 0.08),
+        -3px -3px 9px rgba(255, 255, 255, 0.94);
+    --shadow-neu:
+        inset 0 1.5px 0 #FFFFFF,
+        0 10px 26px -6px rgba(24, 35, 70, 0.08),
+        0 2px 6px rgba(24, 35, 70, 0.035),
+        -5px -5px 14px rgba(255, 255, 255, 0.92);
+    --shadow-card:
+        inset 0 1.5px 0 #FFFFFF,
+        0 10px 26px -6px rgba(24, 35, 70, 0.08),
+        0 2px 6px rgba(24, 35, 70, 0.035),
+        -5px -5px 14px rgba(255, 255, 255, 0.92);
+    --shadow-neu-hover:
+        inset 0 1.5px 0 #FFFFFF,
+        0 18px 36px -8px rgba(91, 80, 255, 0.15),
+        0 6px 14px -4px rgba(24, 35, 70, 0.07),
+        -5px -5px 16px #FFFFFF;
+    --shadow-hover:
+        inset 0 1.5px 0 #FFFFFF,
+        0 18px 36px -8px rgba(91, 80, 255, 0.15),
+        0 6px 14px -4px rgba(24, 35, 70, 0.07),
+        -5px -5px 16px #FFFFFF;
+    --shadow-inset:
+        inset 2px 2px 5px rgba(24, 35, 70, 0.06),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.92);
+    --shadow-focus:
+        0 0 0 4px rgba(91, 80, 255, 0.15),
+        0 6px 18px -4px rgba(91, 80, 255, 0.18);
+
+    /* 3D Raised Button Glows */
+    --shadow-btn-primary:
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.44),
+        inset 0 -2.5px 0 rgba(35, 24, 145, 0.34),
+        0 8px 22px -4px rgba(91, 80, 255, 0.5),
+        0 2px 6px rgba(91, 80, 255, 0.24);
+    --shadow-btn-primary-hover:
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.52),
+        inset 0 -2.5px 0 rgba(35, 24, 145, 0.34),
+        0 13px 28px -3px rgba(91, 80, 255, 0.6),
+        0 4px 10px rgba(91, 80, 255, 0.28);
+    --shadow-btn-success:
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.44),
+        inset 0 -2.5px 0 rgba(4, 92, 62, 0.32),
+        0 8px 22px -4px rgba(16, 185, 129, 0.46),
+        0 2px 6px rgba(16, 185, 129, 0.22);
+    --shadow-btn-success-hover:
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.52),
+        inset 0 -2.5px 0 rgba(4, 92, 62, 0.32),
+        0 13px 28px -3px rgba(16, 185, 129, 0.56),
+        0 4px 10px rgba(16, 185, 129, 0.26);
+    --shadow-btn-sky:
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.44),
+        inset 0 -2.5px 0 rgba(8, 66, 152, 0.32),
+        0 8px 22px -4px rgba(24, 134, 248, 0.46),
+        0 2px 6px rgba(24, 134, 248, 0.22);
+    --shadow-btn-sky-hover:
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.52),
+        inset 0 -2.5px 0 rgba(8, 66, 152, 0.32),
+        0 13px 28px -3px rgba(24, 134, 248, 0.56),
+        0 4px 10px rgba(24, 134, 248, 0.26);
+    --shadow-btn-secondary:
+        inset 0 1.5px 0 #FFFFFF,
+        inset 0 -2px 0 rgba(154, 168, 198, 0.22),
+        0 6px 15px -3px rgba(24, 35, 70, 0.09),
+        -3px -3px 8px rgba(255, 255, 255, 0.95);
+    --shadow-btn-soft:
+        inset 0 1.5px 0 #FFFFFF,
+        inset 0 -2px 0 rgba(91, 80, 255, 0.14),
+        0 6px 16px -4px rgba(91, 80, 255, 0.24),
+        -3px -3px 8px rgba(255, 255, 255, 0.94);
+
+    --shadow-dropdown:
+        inset 0 1px 0 #FFFFFF,
+        0 18px 42px -8px rgba(20, 27, 52, 0.15),
+        0 4px 12px rgba(20, 27, 52, 0.06);
+    --shadow-modal:
+        inset 0 1.5px 0 #FFFFFF,
+        0 26px 60px -10px rgba(20, 27, 52, 0.22);
+
+    /* Soft Rounded Radii */
+    --radius-xs: 8px;
+    --radius-sm: 11px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --radius-xl: 22px;
+    --radius-2xl: 26px;
+    --radius-pill: 999px;
+
+    /* Layout Geometry */
+    --container-max: 1240px;
+    --container-pad: 24px;
+    --header-height: 66px;
+    --sidebar-width: 260px;
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Bengali', sans-serif;
+    --font-display: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    /* Fluid Tactile Motion */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --t-fast: 160ms cubic-bezier(0.22, 1, 0.36, 1);
+    --t-base: 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    --t-smooth: 260ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Z-index Scale */
+    --z-base: 1;
+    --z-header: 90;
+    --z-dropdown: 120;
+    --z-drawer: 200;
+    --z-modal: 300;
+    --z-toast: 400;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --container-pad: 16px;
+        --header-height: 62px;
+    }
+}
+
+@media (max-width: 390px) {
+    :root {
+        --container-pad: 14px;
+        --header-height: 60px;
+    }
+}

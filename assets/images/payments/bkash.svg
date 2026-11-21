@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 68" fill="none" role="img" aria-label="bKash">
+  <g transform="translate(4, 3)">
+    <!-- Back wing shadow -->
+    <polygon points="8,11 26,30 14,11" fill="#9E1638"/>
+    <!-- Swept upper-left main wing -->
+    <polygon points="8,2 44,7 35,36" fill="#D12053"/>
+    <!-- Central bright magenta upper body -->
+    <polygon points="45.2,7.4 36.2,36.2 70.5,41.6" fill="#E2136E"/>
+    <!-- Lower body facet -->
+    <polygon points="36.2,36.8 70.2,42.2 40.8,53.2" fill="#D61E5C"/>
+    <!-- Thin belly highlight fold -->
+    <polygon points="70.8,43.2 69.2,46.6 43.2,54.2" fill="#F01E7A"/>
+    <!-- Pointed lower-left tail -->
+    <polygon points="35.2,37.4 40.2,54.4 24.4,61" fill="#9E1638"/>
+    <!-- Forward head triangle -->
+    <polygon points="60.4,24.8 77.6,21.6 71.2,40.8" fill="#D91D58"/>
+    <!-- Right-pointing crisp beak -->
+    <polygon points="78.8,22 86.2,29.8 76.2,29.8" fill="#E2136E"/>
+  </g>
+  <!-- Authentic bKash wordmark: magenta lowercase b + dark charcoal Kash -->
+  <text x="95" y="48" font-family="Inter, Manrope, -apple-system, BlinkMacSystemFont, sans-serif" font-size="38" font-weight="800" letter-spacing="-1.1" fill="#E2136E">b<tspan fill="#202438" font-weight="600" letter-spacing="-0.8">Kash</tspan></text>
+</svg>

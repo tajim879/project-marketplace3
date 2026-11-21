@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+    <defs>
+        <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F7F8FD"/>
+            <stop offset="55%" stop-color="#F1F3FA"/>
+            <stop offset="100%" stop-color="#ECEFFA"/>
+        </linearGradient>
+        <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F4A62A"/>
+            <stop offset="100%" stop-color="#16B887"/>
+        </linearGradient>
+        <linearGradient id="softPanel" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#F4A62A" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#16B887" stop-opacity="0.03"/>
+        </linearGradient>
+        <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#F4A62A" stop-opacity="0.24"/>
+            <stop offset="100%" stop-color="#F4A62A" stop-opacity="0.0"/>
+        </linearGradient>
+        <radialGradient id="glowOrb" cx="82%" cy="14%" r="48%">
+            <stop offset="0%" stop-color="#F4A62A" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#F4A62A" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="cardShadow" x="-8%" y="-8%" width="116%" height="122%">
+            <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#202438" flood-opacity="0.085"/>
+        </filter>
+    </defs>
+    <rect width="800" height="500" fill="url(#bgGrad)"/>
+    <rect width="800" height="500" fill="url(#glowOrb)"/>
+    <!-- Top Header Strip -->
+    <rect x="82" y="34" width="136" height="28" rx="14" fill="#FFFFFF" stroke="#E4E7F2"/>
+    <circle cx="99" cy="48" r="4.5" fill="#F4A62A"/>
+    <text x="112" y="52" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#202438">RESPONSIVE UI</text>
+    <text x="718" y="53" text-anchor="end" font-family="Manrope,sans-serif" font-size="12.5" font-weight="700" fill="#687089">Responsive Interface Views</text>
+            <!-- Component Design System Canvas -->
+        <g transform="translate(86, 100)">
+            <rect x="0" y="0" width="296" height="152" rx="18" fill="#FFFFFF" stroke="#E5E8F2" filter="url(#cardShadow)"/>
+            <circle cx="38" cy="40" r="18" fill="url(#accentGrad)"/>
+            <rect x="68" y="28" width="136" height="11" rx="5.5" fill="#202438"/>
+            <rect x="68" y="46" width="92" height="8" rx="4" fill="#9299AB" opacity="0.55"/>
+            <rect x="20" y="80" width="120" height="44" rx="11" fill="url(#accentGrad)"/>
+            <text x="42" y="107" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">360-1440px</text>
+            <rect x="152" y="80" width="124" height="44" rx="11" fill="#F4F6FB" stroke="#E2E6F2"/>
+            <text x="174" y="107" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#202438">Verified</text>
+
+            <rect x="318" y="0" width="310" height="320" rx="18" fill="#FFFFFF" stroke="#E5E8F2" filter="url(#cardShadow)"/>
+            <rect x="340" y="22" width="266" height="128" rx="13" fill="url(#softPanel)"/>
+            <path d="M358 122 C 398 72, 434 118, 476 78 C 512 44, 548 86, 588 52" fill="none" stroke="#F4A62A" stroke-width="3.5" stroke-linecap="round"/>
+            <rect x="340" y="168" width="80" height="60" rx="12" fill="#F4A62A"/>
+            <rect x="433" y="168" width="80" height="60" rx="12" fill="#16B887"/>
+            <rect x="526" y="168" width="80" height="60" rx="12" fill="#16B887"/>
+            <rect x="340" y="246" width="266" height="50" rx="12" fill="#F5F6FB" stroke="#E9EBF2"/>
+            <circle cx="368" cy="271" r="11" fill="#F4A62A" opacity="0.2"/>
+            <rect x="390" y="266" width="142" height="10" rx="5" fill="#202438" opacity="0.72"/>
+
+            <rect x="0" y="172" width="296" height="148" rx="18" fill="#FFFFFF" stroke="#E5E8F2" filter="url(#cardShadow)"/>
+            <rect x="22" y="196" width="110" height="10" rx="5" fill="#202438" opacity="0.8"/>
+            <rect x="22" y="222" width="252" height="12" rx="6" fill="#EEF0F8"/>
+            <rect x="22" y="222" width="194" height="12" rx="6" fill="url(#accentGrad)"/>
+            <rect x="22" y="252" width="76" height="38" rx="10" fill="#F5F6FB"/>
+            <rect x="110" y="252" width="76" height="38" rx="10" fill="#F5F6FB"/>
+            <rect x="198" y="252" width="76" height="38" rx="10" fill="#F5F6FB"/>
+        </g>
+</svg>

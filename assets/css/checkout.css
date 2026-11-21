@@ -1,0 +1,247 @@
+/* ============================================================================
+   Shopping Cart, Checkout, Manual Payment & Invoice — Soft UI · 3D Raised
+   100% Mobile-First Safe Layout (320px – 1440px) — Zero Overlap or Clipping
+   ============================================================================ */
+
+.pm-cart-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 376px;
+    gap: 26px;
+    align-items: start;
+    width: 100%;
+    min-width: 0;
+}
+
+.pm-cart-layout > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.pm-cart-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    min-width: 0;
+}
+
+.pm-cart-item {
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+}
+
+.pm-cart-thumb {
+    width: 124px;
+    aspect-ratio: 16 / 10;
+    border-radius: 11px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-subtle);
+    flex-shrink: 0;
+}
+
+.pm-cart-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pm-cart-info {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    gap: 5px;
+    overflow-wrap: anywhere;
+}
+
+.pm-cart-info h3 {
+    font-size: 0.98rem;
+    margin: 0;
+}
+
+.pm-cart-price-col {
+    display: grid;
+    justify-items: end;
+    gap: 8px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.pm-summary-card {
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
+    padding: 23px;
+    border-radius: var(--radius-xl);
+    background: var(--grad-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    min-width: 0;
+}
+
+.pm-summary-rows {
+    display: grid;
+    gap: 10px;
+    font-size: 0.9rem;
+    min-width: 0;
+}
+
+.pm-summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--text-secondary);
+    min-width: 0;
+}
+
+.pm-summary-row.is-discount {
+    color: var(--success-deep);
+    font-weight: 600;
+}
+
+.pm-summary-row.is-total {
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.pm-coupon-form {
+    display: flex;
+    gap: 8px;
+    min-width: 0;
+}
+
+.pm-coupon-form .pm-input {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Official Printable Invoice */
+.pm-invoice-sheet {
+    width: 100%;
+    max-width: 820px;
+    margin: 34px auto;
+    padding: 40px;
+    background: var(--grad-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    min-width: 0;
+}
+
+.pm-invoice-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pm-invoice-parties {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    font-size: 0.88rem;
+    overflow-wrap: anywhere;
+}
+
+/* Tablet & Mobile Breakpoints */
+@media (max-width: 1024px) {
+    .pm-cart-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .pm-summary-card {
+        position: static;
+        top: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 680px) {
+    .pm-cart-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .pm-cart-thumb {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+    }
+
+    .pm-cart-price-col {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: left;
+    }
+
+    .pm-summary-card {
+        padding: 18px 16px;
+        border-radius: var(--radius-lg);
+    }
+
+    .pm-coupon-form {
+        flex-wrap: wrap;
+    }
+
+    .pm-coupon-form .pm-btn {
+        flex: 1 0 auto;
+    }
+
+    .pm-invoice-sheet {
+        margin: 22px auto;
+        padding: 20px 16px;
+        border-radius: var(--radius-lg);
+        gap: 20px;
+    }
+
+    .pm-invoice-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pm-invoice-head > div:last-child {
+        text-align: left !important;
+        justify-items: start !important;
+    }
+
+    .pm-invoice-parties {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+}
+
+@media print {
+    .pm-header, .pm-footer, .pm-no-print {
+        display: none !important;
+    }
+    body {
+        background: #FFFFFF;
+    }
+    .pm-invoice-sheet {
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+        padding: 16px;
+    }
+}

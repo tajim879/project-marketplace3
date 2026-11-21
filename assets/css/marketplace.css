@@ -1,0 +1,382 @@
+/* ============================================================================
+   Marketplace Catalog, Filters Sidebar, Sorting Bar & Seller Storefront
+   Strict Uniform Grid Columns — Never Squishes Cards on Any Viewport
+   ============================================================================ */
+
+.pm-catalog-layout {
+    display: grid;
+    grid-template-columns: 268px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.pm-catalog-layout > * {
+    min-width: 0;
+}
+
+.pm-filter-sidebar {
+    position: sticky;
+    top: calc(var(--header-height) + 18px);
+    padding: 20px;
+    display: grid;
+    gap: 18px;
+    align-content: start;
+}
+
+.pm-filter-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pm-filter-head h2 {
+    font-size: 0.94rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.pm-filter-group {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.pm-filter-title {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.pm-price-range-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.pm-segmented {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-inset);
+}
+
+.pm-segmented label {
+    position: relative;
+    cursor: pointer;
+    min-width: 0;
+}
+
+.pm-segmented input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pm-segmented span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 33px;
+    border-radius: var(--radius-xs);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.pm-segmented input:checked + span {
+    background: var(--grad-primary);
+    color: #FFFFFF;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 12px -2px rgba(91, 80, 255, 0.45);
+}
+
+.pm-tech-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Catalog Toolbar */
+.pm-catalog-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 13px 17px;
+    margin-bottom: 18px;
+    border-radius: var(--radius-lg);
+    background: var(--grad-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+}
+
+.pm-toolbar-count {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+.pm-toolbar-count strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.pm-toolbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.pm-sort-select {
+    height: 36px;
+    padding: 0 11px;
+    border-radius: var(--radius-sm);
+    font-size: 0.83rem;
+    font-weight: 500;
+    width: auto;
+    min-width: 155px;
+    max-width: 100%;
+}
+
+.pm-view-toggle {
+    display: inline-flex;
+    padding: 3px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.pm-view-toggle button {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-xs);
+    color: var(--text-muted);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background var(--t-fast), color var(--t-fast);
+}
+
+.pm-view-toggle button.is-active {
+    background: var(--surface);
+    color: var(--primary);
+    box-shadow: var(--shadow-xs);
+}
+
+.pm-filter-drawer-btn {
+    display: none;
+}
+
+.pm-active-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.pm-active-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--primary-soft);
+    border: 1px solid var(--primary-border);
+    color: var(--primary);
+    font-size: 0.77rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Catalog Grid — Equal-Height Uniform Boxes Across All Breakpoints */
+.pm-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.pm-catalog-layout .pm-catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 1320px) {
+    .pm-catalog-layout .pm-catalog-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1024px) {
+    .pm-catalog-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pm-filter-drawer-btn {
+        display: inline-flex;
+    }
+
+    .pm-filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: min(312px, 88vw);
+        z-index: var(--z-drawer);
+        border-radius: 0;
+        border-top: 0;
+        border-left: 0;
+        border-bottom: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        transform: translateX(-105%);
+        visibility: hidden;
+        transition: transform var(--t-smooth), visibility var(--t-smooth);
+        box-shadow: 12px 0 36px rgba(15, 23, 42, 0.16);
+    }
+
+    .pm-filter-sidebar.is-open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .pm-catalog-grid,
+    .pm-catalog-layout .pm-catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* Phones & Narrow Viewports: 2 compact cards per row */
+@media (max-width: 680px) {
+    .pm-catalog-grid,
+    .pm-catalog-layout .pm-catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .pm-catalog-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .pm-toolbar-controls {
+        width: 100%;
+    }
+
+    .pm-sort-select {
+        flex: 1 1 140px;
+        min-width: 0;
+        height: 40px;
+        font-size: 0.875rem;
+    }
+
+    .pm-view-toggle {
+        display: none;
+    }
+}
+
+/* List view variant (Desktop/Tablet) */
+.pm-catalog-grid.is-list {
+    grid-template-columns: minmax(0, 1fr) !important;
+}
+
+@media (min-width: 681px) {
+    .pm-catalog-grid.is-list .pm-project-card {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        grid-template-rows: 1fr auto;
+    }
+
+    .pm-catalog-grid.is-list .pm-project-media {
+        aspect-ratio: auto;
+        min-height: 185px;
+        height: 100%;
+        grid-row: 1 / span 2;
+    }
+
+    .pm-catalog-grid.is-list .pm-project-desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .pm-catalog-grid.is-list .pm-project-foot {
+        grid-column: 2;
+    }
+}
+
+/* Seller Public Storefront Hero */
+.pm-store-banner {
+    padding: 28px 30px;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.pm-store-identity {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 660px;
+    min-width: 0;
+}
+
+.pm-store-stats,
+.pm-store-metrics {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pm-store-stat {
+    padding: 13px 17px;
+    border-radius: var(--radius-md);
+    background: var(--grad-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xs);
+    text-align: center;
+    min-width: 96px;
+    flex: 1 1 90px;
+}
+
+.pm-store-stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.pm-store-stat span {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}

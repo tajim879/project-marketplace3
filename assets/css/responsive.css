@@ -1,0 +1,595 @@
+/* ============================================================================
+   Responsive System — 100% Mobile, Tablet & Desktop Box Alignment (320px–1440px)
+   High-specificity overrides guarantee zero squished cards & zero overflow
+   ============================================================================ */
+
+/* Prevent horizontal clipping or grid blowout on any viewport */
+img, svg, video, canvas {
+    max-width: 100%;
+}
+
+.pm-card,
+.pm-grid-2 > *,
+.pm-grid-3 > *,
+.pm-grid-4 > *,
+.pm-form-grid-2 > *,
+.pm-detail-layout > *,
+.pm-cart-layout > *,
+.pm-catalog-layout > *,
+.pm-dashboard-shell > *,
+.pm-dash-grid > *,
+.pm-dash-layout > *,
+.pm-dash-main > * {
+    min-width: 0;
+}
+
+.pm-table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+code {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+input[type="file"].pm-input {
+    max-width: 100%;
+    padding-block: 7px;
+    height: auto;
+    min-height: 44px;
+    font-size: 0.82rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pm-breadcrumb {
+    flex-wrap: wrap;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Tablet Landscape (<= 1120px) */
+@media (max-width: 1120px) {
+    .pm-detail-layout,
+    .pm-cart-layout {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 22px;
+    }
+
+    .pm-detail-sidebar,
+    .pm-summary-card {
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
+    }
+    .pm-grid-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .pm-cat-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .pm-stats-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pm-footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+    }
+
+    .pm-promo-banner {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 32px;
+        gap: 24px;
+    }
+}
+
+/* Tablet Portrait (<= 960px) */
+@media (max-width: 960px) {
+    .pm-grid-3,
+    .pm-project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .pm-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .pm-cat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .pm-contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pm-detail-layout,
+    .pm-cart-layout,
+    .pm-project-layout,
+    .pm-checkout-layout {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .pm-detail-sidebar,
+    .pm-summary-card,
+    .pm-project-sidebar,
+    .pm-order-summary {
+        position: static !important;
+    }
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+    .pm-section {
+        padding-block: 40px;
+    }
+
+    .pm-section-tight {
+        padding-block: 26px;
+    }
+
+    .pm-brand-tagline,
+    .pm-hide-mobile {
+        display: none !important;
+    }
+
+    .pm-menu-trigger {
+        width: 38px;
+        padding: 0;
+    }
+
+    .pm-menu-trigger-label {
+        display: none;
+    }
+
+    .pm-hero {
+        padding-block: 36px 34px;
+    }
+
+    .pm-hero-search {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .pm-hero-search-icon,
+    .pm-hero-search-divider {
+        display: none;
+    }
+
+    .pm-hero-search-input {
+        flex: none;
+        width: 100%;
+        height: 44px;
+        padding: 0 12px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        background: var(--surface);
+        font-size: 16px;
+    }
+
+    .pm-hero-search-select {
+        max-width: none;
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        border: 1px solid var(--border);
+        background: var(--bg-subtle);
+        font-size: 15px;
+    }
+
+    .pm-hero-search .pm-btn {
+        width: 100%;
+        height: 44px;
+    }
+
+    /* Prevent iOS auto-zoom on form focus */
+    .pm-input,
+    .pm-select,
+    .pm-textarea {
+        font-size: 16px;
+        min-height: 42px;
+    }
+
+    .pm-form-grid-2,
+    .pm-grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pm-card-pad {
+        padding: 18px;
+    }
+
+    .pm-page-header {
+        padding-block: 22px 20px;
+    }
+
+    .pm-hero-ctas {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .pm-hero-ctas .pm-btn {
+        flex: 1 1 155px;
+    }
+
+    .pm-newsletter-card,
+    .pm-newsletter {
+        padding: 24px 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .pm-newsletter-form {
+        flex: none;
+        width: 100%;
+        max-width: none;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pm-newsletter-form .pm-btn {
+        width: 100%;
+    }
+
+    .pm-store-banner {
+        padding: 20px 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .pm-store-identity {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .pm-store-stats,
+    .pm-store-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+    }
+
+    .pm-store-stat {
+        min-width: 0;
+        padding: 11px 8px;
+    }
+
+    .pm-store-stat strong {
+        font-size: 1.02rem;
+    }
+
+    .pm-store-stat span {
+        font-size: 0.7rem;
+    }
+
+    .pm-pay-strip {
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 100%;
+    }
+
+    .pm-pay-badge--sm {
+        padding: 5px 9px;
+    }
+
+    .pm-pay-badge--sm .pm-pay-svg {
+        height: 22px !important;
+        width: auto !important;
+    }
+
+    form.pm-card.pm-card-pad {
+        padding: 18px 16px !important;
+    }
+
+    .pm-review-summary,
+    .pm-rating-overview,
+    .pm-feature-grid,
+    .pm-spec-grid,
+    .pm-invoice-meta,
+    .pm-invoice-parties {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 14px;
+    }
+
+    .pm-invoice-sheet {
+        padding: 22px 16px !important;
+        margin-block: 20px !important;
+    }
+
+    .pm-invoice-head {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 14px;
+    }
+
+    .pm-invoice-head > div:last-child {
+        text-align: left !important;
+        justify-items: start !important;
+    }
+
+    .pm-cart-item {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .pm-cart-thumb {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10;
+    }
+
+    .pm-cart-price-col {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        text-align: left;
+    }
+
+    .pm-coupon-form {
+        flex-wrap: wrap;
+    }
+
+    .pm-coupon-form .pm-input {
+        flex: 1 1 160px;
+        min-width: 0;
+    }
+
+    .pm-gallery-thumbs {
+        grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)) !important;
+        gap: 8px;
+    }
+
+    .pm-table th,
+    .pm-table td {
+        padding: 11px 12px;
+        font-size: 0.82rem;
+    }
+
+    .pm-table td:first-child {
+        min-width: 155px;
+    }
+
+    .pm-table td.pm-tabular,
+    .pm-table th {
+        white-space: nowrap;
+    }
+
+    .pm-modal-dialog {
+        padding: 18px;
+    }
+}
+
+/* All Mobile Phones (<= 680px) — Single Full-Width Column for All Project, Seller & Testimonial Cards */
+@media (max-width: 680px) {
+    .pm-grid-3 {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 16px;
+    }
+
+    .pm-project-grid,
+    .pm-catalog-grid,
+    .pm-catalog-layout .pm-catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px;
+    }
+
+    .pm-project-card {
+        border-radius: 16px;
+    }
+
+    .pm-project-body {
+        padding: 10px 11px 8px;
+        gap: 6px;
+    }
+
+    .pm-project-title {
+        font-size: 0.86rem;
+    }
+
+    .pm-project-cat {
+        font-size: 0.64rem;
+        padding: 2px 8px;
+    }
+
+    .pm-author-link {
+        font-size: 0.7rem;
+    }
+
+    .pm-author-link .pm-avatar {
+        width: 19px;
+        height: 19px;
+    }
+
+    .pm-project-foot {
+        padding: 8px 11px;
+    }
+
+    .pm-price-current {
+        font-size: 0.95rem;
+    }
+
+    .pm-price-old {
+        font-size: 0.68rem;
+    }
+
+    .pm-project-go {
+        width: 28px;
+        height: 28px;
+    }
+
+    .pm-section-head {
+        margin-bottom: 20px;
+    }
+
+    .pm-promo-banner {
+        padding: 24px 18px;
+        border-radius: var(--radius-lg);
+    }
+
+    .pm-promo-copy .pm-btn-row {
+        width: 100%;
+    }
+
+    .pm-promo-copy .pm-btn-row .pm-btn {
+        flex: 1 1 160px;
+    }
+
+    .pm-footer {
+        padding-top: 38px;
+        padding-bottom: 24px;
+    }
+
+    .pm-footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        padding-bottom: 26px;
+    }
+
+    .pm-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .pm-footer-contact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+/* Phones (<= 540px) — Clean Uniform Boxes for Categories & Stats */
+@media (max-width: 540px) {
+    .pm-grid-4 {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .pm-cat-grid {
+        gap: 12px;
+    }
+
+    .pm-cat-card {
+        min-height: 150px;
+        padding: 14px;
+        gap: 12px;
+        border-radius: 18px;
+    }
+
+    .pm-cat-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 13px;
+    }
+
+    .pm-cat-count {
+        font-size: 0.68rem;
+        padding: 2px 8px;
+    }
+
+    .pm-cat-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .pm-cat-card p {
+        font-size: 0.74rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .pm-stats-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 26px;
+    }
+
+    .pm-stat-tile {
+        padding: 13px 12px;
+        gap: 10px;
+    }
+
+    .pm-stat-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: var(--radius-sm);
+    }
+
+    .pm-stat-value,
+    .pm-stat-tile strong {
+        font-size: 1.08rem;
+    }
+
+    .pm-stat-label,
+    .pm-stat-tile > div > span {
+        font-size: 0.73rem;
+    }
+
+    .pm-hero-ctas .pm-btn-lg,
+    .pm-btn-row .pm-btn-lg {
+        height: 45px;
+        padding-inline: 15px;
+        font-size: 0.865rem;
+    }
+
+    .pm-header-signin {
+        height: 36px;
+        padding: 0 12px;
+        font-size: 0.8rem;
+    }
+
+    .pm-pay-badge--lg,
+    .pm-pay-badge--md {
+        padding: 6px 11px;
+    }
+
+    .pm-pay-badge--lg .pm-pay-svg {
+        height: 26px !important;
+        width: auto !important;
+    }
+
+    .pm-promo-metric-card {
+        padding: 13px 14px;
+        gap: 10px;
+    }
+
+    .pm-faq-trigger,
+    .pm-faq-q {
+        padding: 15px 16px;
+        font-size: 0.9rem;
+    }
+
+    .pm-faq-panel,
+    .pm-faq-a {
+        padding: 0 16px 16px;
+        font-size: 0.855rem;
+    }
+}
+
+/* Compact Phones (<= 360px) */
+@media (max-width: 360px) {
+    .pm-stats-bar {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pm-brand-name {
+        font-size: 0.98rem;
+    }
+
+}

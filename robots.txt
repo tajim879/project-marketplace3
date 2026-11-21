@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /buyer/
+Disallow: /seller/
+Disallow: /admin/
+Disallow: /actions/
+Disallow: /includes/
+Disallow: /storage/projects/
+Disallow: /storage/private/
+Disallow: /storage/payment-proofs/
+Disallow: /storage/logs/
+Disallow: /database/
+Disallow: /download.php
+Disallow: /invoice.php
+
+Sitemap: /sitemap.php
