@@ -3,7 +3,7 @@ FROM php:8.3-apache
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libsqlite3-dev libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j"$(nproc)" pdo_sqlite sqlite3 gd zip \
+    && docker-php-ext-install -j"$(nproc)" gd zip \
     && a2enmod rewrite headers \
     && rm -rf /var/lib/apt/lists/*
 
